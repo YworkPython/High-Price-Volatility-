@@ -20,7 +20,7 @@ def price_movmenet(df,state, t1, t2,year, q):
     return state, year, q, avg_up,avg_down,avg_down_abs,Hours_of_Up_Moves,Hours_of_Down_Moves
 
 
-    import os
+import os
 writer = pd.ExcelWriter(path.join(r'D:\others_Output\High Price', 'High Price Analysis_price_movement_afternoon.xlsx'),engine='xlsxwriter')
 
 #os.chdir(r'C:\Users\ygu\Documents\ES\High Price')
@@ -34,3 +34,5 @@ for state in ['QLD1','NSW1','VIC1','SA1','TAS1']:
     worksheet=workbook.add_worksheet(state)
     writer.sheets[state] = worksheet
     df_f.to_excel(writer,sheet_name=state,startrow=0 , startcol=0,index=False,float_format="%.1f")
+
+writer.close()
